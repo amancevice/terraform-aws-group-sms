@@ -1,6 +1,10 @@
 /**
  * Required variables.
  */
+variable "topic_display_name" {
+  description = "Display name of the AWS SNS topic."
+}
+
 variable "topic_name" {
   description = "Name of the AWS SNS topic."
 }
@@ -8,11 +12,6 @@ variable "topic_name" {
 /**
  * Optional variables.
  */
-variable "topic_display_name" {
-  description = "Display name of the AWS SNS topic."
-  default     = ""
-}
-
 variable "default_sender_id" {
   description = "A custom ID, such as your business brand, displayed as the sender on the receiving device. Support for sender IDs varies by country."
   default     = ""
