@@ -5,11 +5,6 @@ variable "topic_name" {
   description = "Name of the AWS SNS topic."
 }
 
-variable "subscriptions" {
-  description = "List of telephone numbers to subscribe to SNS."
-  type        = "list"
-}
-
 /**
  * Optional variables.
  */
@@ -41,6 +36,12 @@ variable "delivery_status_success_sampling_rate" {
 variable "monthly_spend_limit" {
   description = "The maximum amount to spend on SMS messages each month. If you send a message that exceeds your limit, Amazon SNS stops sending messages within minutes."
   default     = ""
+}
+
+variable "subscriptions" {
+  description = "List of telephone numbers to subscribe to SNS."
+  type        = "list"
+  default     = []
 }
 
 variable "usage_report_s3_bucket" {
