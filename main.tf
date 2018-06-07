@@ -12,7 +12,7 @@ resource "aws_sns_sms_preferences" "group_sms" {
   usage_report_s3_bucket                = "${var.usage_report_s3_bucket}"
 }
 
-resource "aws_sns_topic_subscription" "group_ssms" {
+resource "aws_sns_topic_subscription" "group_sms" {
   count     = "${length("${var.subscriptions}")}"
   topic_arn = "${aws_sns_topic.group_sms.arn}"
   protocol  = "sms"
