@@ -19,8 +19,13 @@ module "group_sms" {
   ]
 }
 
-output "topic_arn" {
+output "sns_topic_arn" {
   description = "AWS Topic ARN."
   value       = "${module.group_sms.topic_arn}"
+}
+
+output "sns_topic_subscriptions" {
+  description = "AWS Topic ARN."
+  value       = "${module.group_sms.topic_subscriptions}"
 }
 ```
