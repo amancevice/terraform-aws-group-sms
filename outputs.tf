@@ -1,3 +1,4 @@
 output "topic_arn" {
-  value = "${aws_sns_topic.group_sms.arn}"
+  description = "AWS Topic ARN."
+  value       = "${aws_sns_topic.group_sms.arn}"
 }

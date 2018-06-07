@@ -5,6 +5,10 @@ variable "topic_name" {
   description = "Name of the AWS SNS topic."
 }
 
+variable "subscriptions" {
+  description = "List of telephone numbers to subscribe to SNS."
+  type        = "list"
+}
 
 /**
  * Optional variables.

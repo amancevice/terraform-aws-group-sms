@@ -11,3 +11,10 @@ resource "aws_sns_sms_preferences" "opts" {
   monthly_spend_limit                   = "${var.monthly_spend_limit}"
   usage_report_s3_bucket                = "${var.usage_report_s3_bucket}"
 }
+
+resource "aws_sns_topic_subscription" "sms" {
+  count     = "${length("${var.subscriptions}")}"
+  topic_arn = "${module.group_sms.topic_arn}"
+  protocol  = "sms"
+  endpoint  = "${element("${var.subscriptions}", count.index)}"
+}
