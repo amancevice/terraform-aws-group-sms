@@ -2,12 +2,15 @@
 
 Send SMS messages to a group via AWS SNS
 
+## Quickstart
+
+Create a `main.tf` file with the following contents:
+
 ```terraform
-# terraform.tf
+# main.tf
 
 module "group_sms" {
   source             = "amancevice/group-sms/aws"
-  version            = "<version>"
   topic_display_name = "MyTopic"
   topic_name         = "my-topic"
 
@@ -18,14 +21,16 @@ module "group_sms" {
     "..."
   ]
 }
+```
 
-output "sns_topic_arn" {
-  description = "AWS Topic ARN."
-  value       = "${module.group_sms.topic_arn}"
-}
+In a terminal window, initialize the state:
 
-output "sns_topic_subscriptions" {
-  description = "AWS Topic ARN."
-  value       = "${module.group_sms.topic_subscriptions}"
-}
+```bash
+terraform init
+```
+
+Then review & apply the changes
+
+```bash
+terraform apply
 ```
