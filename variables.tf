@@ -20,7 +20,7 @@ variable "delivery_status_success_sampling_rate" {
 
 variable "monthly_spend_limit" {
   description = "The maximum amount to spend on SMS messages each month. If you send a message that exceeds your limit, Amazon SNS stops sending messages within minutes."
-  default     = ""
+  default     = 1
 }
 
 variable "role_name" {
