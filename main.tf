@@ -53,10 +53,10 @@ resource "aws_iam_role" "delivery_status_role" {
   assume_role_policy = "${data.aws_iam_policy_document.assume_role.json}"
 }
 
-resource "aws_iam_role_policy" "delivery_status_inline_role_policy" {
+resource "aws_iam_role_policy" "delivery_status_role_inline_policy" {
   name   = "${aws_iam_role.delivery_status_role.name}InlinePolicy"
   role   = "${aws_iam_role.delivery_status_role.id}"
-  policy = "${data.aws_iam_policy_document.delivery_status_inline_role_policy.json}"
+  policy = "${data.aws_iam_policy_document.delivery_status_role_inline_policy.json}"
 }
 
 resource "aws_s3_bucket" "delivery_status_bucket" {
