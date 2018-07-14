@@ -23,6 +23,16 @@ variable "monthly_spend_limit" {
   default     = 1
 }
 
+variable "policy_name" {
+  description = "Name of policy to publish to Group SMS topic."
+  default     = "group-sms-publish"
+}
+
+variable "policy_path" {
+  description = "Path of policy to publish to Group SMS topic"
+  default     = "/"
+}
+
 variable "role_name" {
   description = "The IAM role that allows Amazon SNS to write logs for SMS deliveries in CloudWatch Logs."
   default     = "SNSSuccessFeedback"
@@ -36,6 +46,7 @@ variable "subscriptions" {
 
 variable "topic_display_name" {
   description = "Display name of the AWS SNS topic."
+  default     = ""
 }
 
 variable "topic_name" {

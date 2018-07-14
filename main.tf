@@ -1,3 +1,7 @@
+locals {
+  display_name = "${coalesce("${var.topic_display_name}", "${var.topic_name}")}"
+}
+
 data "aws_iam_policy_document" "assume_role" {
   statement {
     actions    = ["sts:AssumeRole"]
@@ -48,7 +52,22 @@ data "aws_iam_policy_document" "delivery_status_bucket_policy" {
   }
 }
 
+data "aws_iam_policy_document" "publish" {
+  statement {
+    actions   = ["sns:Publish"]
+    resources = ["${aws_sns_topic.topic.arn}"]
+  }
+}
+
+resource "aws_iam_policy" "publish" {
+  name        = "${var.policy_name}"
+  path        = "${var.policy_path}"
+  description = "Allow publishing to Group SMS SNS Topic"
+  policy      = "${data.aws_iam_policy_document.publish.json}"
+}
+
 resource "aws_iam_role" "delivery_status_role" {
+  description        = "Allow AWS to publish SMS delivery status logs"
   name               = "${var.role_name}"
   assume_role_policy = "${data.aws_iam_policy_document.assume_role.json}"
 }
@@ -87,7 +106,7 @@ resource "aws_sns_sms_preferences" "sms_preferences" {
 }
 
 resource "aws_sns_topic" "topic" {
-  display_name = "${var.topic_display_name}"
+  display_name = "${local.display_name}"
   name         = "${var.topic_name}"
 }
 
