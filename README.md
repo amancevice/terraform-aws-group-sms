@@ -1,4 +1,7 @@
-# AWS Group SNS
+# AWS Group SMS
+
+[![terraform](https://img.shields.io/github/v/tag/amancevice/terraform-aws-group-sms?color=62f&label=version&logo=terraform&style=flat-square)](https://registry.terraform.io/modules/amancevice/group-sms/aws)
+[![build](https://img.shields.io/github/workflow/status/amancevice/terraform-aws-group-sms/validate?logo=github&style=flat-square)](https://github.com/amancevice/terraform-aws-group-sms/actions)
 
 Send SMS messages to a group via AWS SNS
 
