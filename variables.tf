@@ -19,7 +19,7 @@ variable "delivery_status_iam_role_arn" {
 variable "delivery_status_success_sampling_rate" {
   description = "Default percentage of success to sample."
   type        = number
-  default     = ""
+  default     = 0
 }
 
 variable "monthly_spend_limit" {

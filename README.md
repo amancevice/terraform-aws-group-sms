@@ -2,6 +2,11 @@
 
 Send SMS messages to a group via AWS SNS
 
+## Terraform versions
+
+For Terraform versions >= 0.12 use versions tagged 0.5.0 or later, for
+Terraform 0.11 use 0.4.0.
+
 ## Quickstart
 
 Create a `main.tf` file with the following contents:
