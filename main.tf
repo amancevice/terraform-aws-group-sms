@@ -102,7 +102,7 @@ resource "aws_sns_sms_preferences" "sms_preferences" {
   delivery_status_iam_role_arn          = aws_iam_role.delivery_status_role.arn
   delivery_status_success_sampling_rate = var.delivery_status_success_sampling_rate
   monthly_spend_limit                   = var.monthly_spend_limit
-  usage_report_s3_bucket                = aws_s3_bucket.delivery_status_bucket.bucket
+  #usage_report_s3_bucket                = aws_s3_bucket.delivery_status_bucket.bucket
 }
 
 resource "aws_sns_topic" "topic" {
